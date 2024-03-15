@@ -23,10 +23,10 @@
 
 
 ## How to run the application:
-1) Open ArduinoIDE and upload the code to Arduino
+1) Open ArduinoIDE, paste the code and upload to Arduino
 2) Install Arduino dependencies
-3) Download and run <a href="https://nodered.org/docs/getting-started/local">node-red</a>
-4) Install node-red dependencies
-5) import the flow and deploy on node-red
-6) Open the dashboard
+4) Download and run <a href="https://nodered.org/docs/getting-started/local">node-red</a>
+5) Install node-red dependencies
+6) import the flow and deploy on node-red
+7) Open the dashboard
    
