@@ -1,0 +1,52 @@
+#include <ArduinoJson.h>
+const int TAMANHO = 50;  //define o tamanho do buffer para o json
+ 
+#include "DHT.h"
+#define DHTPIN  2  //define o pino usado no arduino
+#define DHTTYPE DHT11
+DHT dht(DHTPIN, DHTTYPE); //declara a objeto da classe
+int trigPin = 7;    // TRIG pin
+int echoPin = 8;    // ECHO pin
+
+float duration_us;
+
+void setup() {
+  //inicializa o sensor
+  dht.begin();
+
+  // inicializa o serial port
+  Serial.begin (9600);
+  pinMode(A1, INPUT);
+  // configura o trigger
+  pinMode(trigPin, OUTPUT);
+  // configura o echo
+  pinMode(echoPin, INPUT);
+}
+void loop() {
+  StaticJsonDocument<TAMANHO> json; //Aloca buffer para objeto json
+
+  int valor = analogRead(A1);
+  int tensao = map(valor, 49, 969, 0, 10000);
+
+  // pulsa
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  // mensura a duração 
+  duration_us = pulseIn(echoPin, HIGH);
+
+ 
+  float temp = dht.readTemperature();
+  // faz a leitura da umidade
+  float umi = dht.readHumidity();
+ 
+  //formato de escrita do json
+  json["temperatura"] = temp;
+  json["umidade"] = umi;
+  json["distance"] = duration_us;
+  json["luminosity"] = tensao;
+ 
+  serializeJson(json, Serial);
+  Serial.println();
+  delay(3000);
+}
