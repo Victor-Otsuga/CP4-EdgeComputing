@@ -29,5 +29,10 @@
 7) Open the dashboard
 
 
+## Group Members
+#### Victor Augusto   RM 553518
+#### Vitor Moura      RM 553806
+
+
 ## Last cool photo
 <img width="600" alt="info" src="https://github.com/Victor-Otsuga/CP4-EdgeComputing/assets/105857027/80837c0f-aa69-494d-aa7d-88816948204c">
