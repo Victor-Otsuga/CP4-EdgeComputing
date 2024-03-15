@@ -1,0 +1,246 @@
+[
+    {
+        "id": "3563b88146b39549",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "097d8df808d12199",
+        "type": "serial in",
+        "z": "3563b88146b39549",
+        "name": "",
+        "serial": "1b2cd8f7641c392d",
+        "x": 90,
+        "y": 420,
+        "wires": [
+            [
+                "050b88140dde52e6"
+            ]
+        ]
+    },
+    {
+        "id": "050b88140dde52e6",
+        "type": "json",
+        "z": "3563b88146b39549",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": true,
+        "x": 290,
+        "y": 420,
+        "wires": [
+            [
+                "fb5b9a11c4e5127b",
+                "c5b496f5ffed6d8f",
+                "8f76be65915ba03a"
+            ]
+        ]
+    },
+    {
+        "id": "3121f2caa2b9f78d",
+        "type": "ui_gauge",
+        "z": "3563b88146b39549",
+        "name": "",
+        "group": "8c34a9f2ad92d3b8",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Luminosidade",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "5000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 680,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "fb5b9a11c4e5127b",
+        "type": "change",
+        "z": "3563b88146b39549",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.luminosity",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 420,
+        "wires": [
+            [
+                "3121f2caa2b9f78d"
+            ]
+        ]
+    },
+    {
+        "id": "8cb2fa3e97411944",
+        "type": "ui_gauge",
+        "z": "3563b88146b39549",
+        "name": "",
+        "group": "8c34a9f2ad92d3b8",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Distancia",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "3000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 660,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "333f5cf6fcf13415",
+        "type": "ui_gauge",
+        "z": "3563b88146b39549",
+        "name": "",
+        "group": "8c34a9f2ad92d3b8",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperatura",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 670,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "8f76be65915ba03a",
+        "type": "change",
+        "z": "3563b88146b39549",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.temperatura",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 360,
+        "wires": [
+            [
+                "333f5cf6fcf13415"
+            ]
+        ]
+    },
+    {
+        "id": "c5b496f5ffed6d8f",
+        "type": "change",
+        "z": "3563b88146b39549",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.distance",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 480,
+        "wires": [
+            [
+                "8cb2fa3e97411944"
+            ]
+        ]
+    },
+    {
+        "id": "1b2cd8f7641c392d",
+        "type": "serial-port",
+        "name": "",
+        "serialport": "COM5",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "8c34a9f2ad92d3b8",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "233639042cd0ac76",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "233639042cd0ac76",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
